@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #ff7eb3, #ff758c);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 10%;
+        }
+        .profile-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        .emoji {
+            font-size: 50px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            background: white;
+            color: #ff4b6e;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background: #ff4b6e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-card">
+            <span class="emoji">😎</span>
+            <h1>Olá, eu sou <strong><%= name %></strong>!</h1>
+            <p>Tenho <strong><%= age %></strong> anos e moro em <%= city%>.</p>
+            <a class="button" onclick="alert('Oi! 😃 Obrigado por visitar meu perfil!')">👋 Diga oi!</a>
+        </div>
+    </div>
+
+</body>
+</html>
