@@ -1,1 +1,113 @@
-<h1>Rota pedidos</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #ff7eb3, #ff758c);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5rem;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        b {
+            color: #630014;
+        }
+
+        ul ul {
+            margin-left: 20px;
+            list-style-type: square;
+        }
+
+        ul ul li {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            background: white;
+            color: #ff4b6e;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #ff4b6e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pedidos</h1>
+
+    <ul>
+        <% pedidos.forEach(pedido => { %>
+            <li>
+                <p><b>Cliente:</b> <%= pedido.cliente.nome %> <%= pedido.cliente.sobrenome %></p>
+                
+                <p><b>Pizzas Pedidas:</b></p>
+                <ul>
+                    <% pedido.pizzas.forEach(pizza => { %>
+                        <li>
+                            <p>Sabor: <%= pizza.sabor %></p>
+                            <p>Tamanho: <%= pizza.tamanho %></p>
+                            <p>Quantidade: <%= pizza.quantidade %></p>
+                        </li>
+                    <% }) %>
+                </ul>
+
+                <p><b>Método de Pagamento:</b> <%= pedido.metodoDePagamento %></p>
+                <p><b>Total:</b> R$ <%= pedido.total.toFixed(2) %></p>
+                <p><b>Status:</b> <%= pedido.status ? "Finalizado" : "Em andamento" %></p>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>

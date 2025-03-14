@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const { connect } = require('./models/index')
+
 
 const routerPrincipal = require('./routes/principal')
 const routerPedidos = require('./routes/pedidos')
@@ -20,6 +22,7 @@ app.use('/perfil', routerPerfil)
 
 const porta = 3000
 app.listen(porta, () => {
+    connect()
     console.log(`servidor rodando na porta ${porta}`)
 })
 

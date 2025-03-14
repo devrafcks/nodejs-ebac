@@ -52,15 +52,17 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="profile-card">
             <span class="emoji">😎</span>
-            <h1>Olá, eu sou <strong><%= name %></strong>!</h1>
-            <p>Tenho <strong><%= age %></strong> anos e moro em <%= city%>.</p>
-            <a class="button" onclick="alert('Oi! 😃 Obrigado por visitar meu perfil!')">👋 Diga oi!</a>
+            <% if (perfil && perfil.length > 0) { %>
+                <h1>Olá, eu sou <%= perfil[0].perfil.nome %> <%= perfil[0].perfil.sobrenome %></h1>
+                <p>Tenho <%= perfil[0].perfil.age %> anos e moro em <%= perfil[0].perfil.city %>.</p>
+            <% } else { %>
+                <p>Perfil não encontrado.</p>
+            <% } %>
+            
         </div>
     </div>
-
 </body>
 </html>
