@@ -9,7 +9,12 @@ const PedidoSchema = new Schema({
             {
             sabor: { type: String, required: true },
             tamanho: { type: String, required: true },
-            quantidade: { type: Number, required: true, enum: ["pequeno", "médio", "grande", "supremo"] },
+            quantidade: { 
+    type: String, 
+    required: true, 
+    enum: ["pequeno", "médio", "grande", "supremo"]
+}
+
         }
     ],
     metodoDePagamento: {

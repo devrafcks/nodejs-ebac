@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const Perfils = require('../models/index').Perfils;
+const Perfils = require('../models/index').Perfis;
 
 router.get('/', (_, res, next) => {
     Perfils.find({"perfil.nome": "Rafael"})

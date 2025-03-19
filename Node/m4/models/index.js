@@ -1,12 +1,22 @@
-const mongoose = require('mongoose'); // Corrigido o nome do pacote
+const mongoose = require('mongoose'); 
 const PedidoSchema = require('./pedido');
 const PerfilSchema = require('./perfil');
 
 const Pedidos = mongoose.model('Pedido', PedidoSchema);
-const Perfils = mongoose.model('Perfil', PerfilSchema);
+const Perfis = mongoose.model('Perfil', PerfilSchema);
 
 mongoose.set('strictQuery', true); 
-const connect = () => {
-    mongoose.connect('mongodb://localhost:27017/ebacpizza');
+
+const connect = async () => {
+    try {
+        await mongoose.connect('mongodb://localhost:27017/ebacpizza', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log('✅ Conectado ao MongoDB!');
+    } catch (error) {
+        console.error('❌ Erro ao conectar ao MongoDB:', error);
+    }
 };
-module.exports = { connect, Pedidos, Perfils };
+
+module.exports = { connect, Pedidos, Perfis };
